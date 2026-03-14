@@ -1,20 +1,20 @@
 name: Build_oneplus_sm8750
-on:
+于:
   workflow_dispatch:
     inputs:
       ksu_type:
         description: "📝请选择要集成的KSU："
         required: true
-        type: choice
+        输入: choice
         options:
           - 'ReSukiSU'
           - 'SukiSU-Ultra'
-        default: 'ReSukiSU'
+        默认: 'ReSukiSU'
         
       device_name:
         description: "📝请选择要编译的机型："
         required: true
-        type: choice
+        输入: choice
         options:
           - 'oneplus_13'
           - 'oneplus_ace5_pro'
@@ -26,35 +26,35 @@ on:
           - 'realme_GT7pro'
           - 'realme_GT7pro_Speed'
           - 'realme_GT8'
-        default: 'oneplus_ace5_pro'
+        默认: 'oneplus_ace5_pro'
 
       keep_original_settings:
         description: "📝保持原内核名称及构建时间(不懂请保持默认)"
         required: false
-        default: true
-        type: boolean
+        默认: true
+        输入: boolean
 
       custom_kernel_suffix:
         description: "✏️ 自定义内核名称- 仅在取消勾选'保持原设置'时有效(不懂请保持默认)"
         required: false
-        default: ''
+        默认: ''
       
       custom_kernel_time:
         description: "⏰ 自定义构建时间- 仅在取消勾选'保持原设置'时有效(不懂请保持默认)"
         required: false
-        default: ''
+        默认: ''
 
       enable_scx:
         description: "添加完美风驰"
         required: false
-        default: true
-        type: boolean
+        默认: true
+        输入: boolean
 
       enable_bbg:
         description: "开启BBG基带守护"
         required: false
-        default: true
-        type: boolean
+        默认: true
+        输入: boolean
 
        
 
@@ -428,7 +428,7 @@ jobs:
         run: |
           cd kernel_workspace
           echo "CONFIG_KSU=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_KPM=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_KPM=n" >> ./common/arch/arm64/configs/gki_defconfig
           
           if [ "${{ env.KSU_TYPE }}" == 'ReSukiSU' ]; then
             echo 'CONFIG_KSU_FULL_NAME_FORMAT="%TAG_NAME%-%COMMIT_SHA%-Re-TG@qdykernel"' >> ./common/arch/arm64/configs/gki_defconfig
