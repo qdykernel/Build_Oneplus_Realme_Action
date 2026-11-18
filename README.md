@@ -164,4 +164,4 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - **酷安**: 私信 [@Q1udaoyu](http://www.coolapk.com/u/1624571)
 
 ---
-**维护状态**: 🟢 活跃维护中
+**维护状态**: 停止维护
